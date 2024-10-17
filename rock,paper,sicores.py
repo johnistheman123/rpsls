@@ -1,8 +1,10 @@
-# project: test.py
-#        author: Jonathan E Ouellette <jouellette2918061@woonsocketschools.com>
-#  date written: 10/10/2024
-#
-#   description: rpsls
+"""
+        project: test.py
+         author: Jonathan E Ouellette <jouellette2918061@woonsocketschools.com>
+   date written: 10/10/2024
+ 
+    description: rpsls
+"""
 
 import random
 
@@ -22,7 +24,7 @@ wallet1 = wallet2 = 20
 
 isPlaying = True
 
-while isPlaying:
+while isPlaying is True:
     # === Choose your move
     print("""
     On your table before you there are five choices :
@@ -47,10 +49,11 @@ while isPlaying:
         bet2 = int(input(f"You have {wallet2} dollars in your wallet. How much do you want to bet? : "))
         wallet2 -= bet2
     # === Resolve combat
-    if weapon1 == "R":  # Player1 chooses Rock
-        if weapon2 == "R":
+    if weapon1 == weapon2:
             print("Thou hast ended in a Draw!")
-        elif weapon2 == "P":
+        
+    elif weapon1 == "R":  # Player1 chooses Rock
+        if weapon2 == "P":
             print(f"Paper covers Rock! {player2} wins this round!")
             wallet2 += bet2*2
             score2 = score2 + 1
@@ -67,9 +70,7 @@ while isPlaying:
             score1 = score1 + 1
             wallet1 += bet1 * 2
     elif weapon1 == "P":  # Player1 chooses Paper
-        if weapon2 == "P":
-            print("Thou hast ended in a Draw!")
-        elif weapon2 == "R":
+        if weapon2 == "R":
             print(f"Paper covers Rock! {player1} wins this round!")
             score1 = score1 + 1
             wallet1 += bet1 * 2
@@ -154,6 +155,8 @@ while isPlaying:
     ask = input("Would you like another round? : ")
     if ask != "Y":
         isPlaying = False
+
+# End of While Loop
 
 if score1 > score2:
     print(f"{player1} win the duel with {score1} points!")
